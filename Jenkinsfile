@@ -29,7 +29,7 @@ pipeline{
                     {
                         docker stop jencont
                         docker rm jencont
-                        docker run   seifeddinemaalel/mytest
+                        docker run -d   registry
                         }
                    } 
                }
