@@ -27,8 +27,8 @@ pipeline{
               steps{
                   script 
                     {
-                       docker.stop jencont
-                       docker.rm jencont
+                       dockerImage.stop ()
+                       dockerImage.rm () 
                        dockerImage.run ()
                         }
                    } 
