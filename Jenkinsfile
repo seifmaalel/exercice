@@ -1,26 +1,27 @@
-pipeline { 
-  environment { 
-    registry = "seifeddinemaalel/mytest" 
-    registryCredential = 'dockerhub' 
-    dockerImage = '' 
+pipeline{
+  environment {
+    registry = "seifeddinemaalel/mytest"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
   }
-  agent any 
+  agent any
     stages { 
-        stage('Building our image') { 
-            steps{ 
-                script { 
-                  dockerImage = docker.build registry + ":lastest" 
+        stage('Building image') {
+            steps{
+                script {
+                  dockerImage = docker.build registry + ":latest"
                 }
-            } 
-         }
-         stage('Push image') { 
-             steps{ 
-                 script {               
-                              docker.withRegistry( '', registryCredential ) { 
-                                  dockerImage.push() 
-                    }
-                } 
+             }
+          }
+          stage('Push Image') {
+              steps{
+                  script 
+                    {
+                        docker.withRegistry( '', registryCredential ) {
+                            dockerImage.push()
+                        }
+                   } 
+               }
             }
-          }   
-      }
+    }
 }
