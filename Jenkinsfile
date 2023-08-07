@@ -4,42 +4,23 @@ pipeline {
     registryCredential = 'dockerhub' 
     dockerImage = '' 
   }
-
   agent any 
-
     stages { 
-
-      stage('Building our image') { 
-
-            steps { 
-
+        stage('Building our image') { 
+            steps{ 
                 script { 
-
-                    dockerImage = docker.build registry + ":lastest" 
-
+                  dockerImage = docker.build registry + ":lastest" 
                 }
-
             } 
-
-        }
-
-        stage('Push image') { 
-
-            steps { 
-                script { 
-                  
-                    docker.withRegistry( '', registryCredential ) { 
-
-                        dockerImage.push() 
-
+         }
+         stage('Push image') { 
+             steps{ 
+                 script {               
+                              docker.withRegistry( '', registryCredential ) { 
+                                  dockerImage.push() 
                     }
-
                 } 
-
             }
-        } 
-
-  
-    }
-
+          }   
+      }
 }
