@@ -1,16 +1,16 @@
 pipeline { 
 
-    environment { 
+  environment { 
 
-        registry = "seifeddinemaalel/mytest" 
+     registry = "seifeddinemaalel/mytest" 
 
-        registryCredential = 'dockerhub' 
+     registryCredential = 'dockerhub' 
 
-        dockerImage = '' 
+     dockerImage = '' 
 
     }
 
-    agent any 
+  agent any 
 
     stages { 
 
@@ -48,5 +48,3 @@ pipeline {
     }
 
 }
-
-
