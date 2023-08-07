@@ -23,5 +23,16 @@ pipeline{
                    } 
                }
             }
+          stage('running') {
+              steps{
+                  script 
+                    {
+                        docker stop jencont
+                        docker rm jencont
+                        docker run  -d seifeddinemaalel/mytest
+                        }
+                   } 
+               }
+            }
     }
 }
