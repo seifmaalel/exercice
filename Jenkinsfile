@@ -27,9 +27,9 @@ pipeline{
               steps{
                   script 
                     {
-                        docker stop jencont
-                        docker rm jencont
-                        docker run -d --name jencont  registry
+                      sh  docker stop jencont
+                      sh docker rm jencont
+                      sh docker run -d --name jencont  registry
                         }
                    } 
                }
